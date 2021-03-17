@@ -64,6 +64,7 @@ public class SoruPage extends VerticalLayout {
     }
 
     private void buildMainLayout() {
+
         mainLayout = new FormLayout();
         mainLayout.setSizeUndefined();
 

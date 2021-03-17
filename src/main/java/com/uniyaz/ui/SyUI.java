@@ -1,6 +1,7 @@
 package com.uniyaz.ui;
 
 import com.uniyaz.core.domain.Anket;
+import com.uniyaz.core.domain.Kisi;
 import com.uniyaz.core.domain.Soru;
 import com.uniyaz.ui.component.ContentComponent;
 import com.uniyaz.ui.component.SyMenuBar;
@@ -25,6 +26,7 @@ public class SyUI extends UI {
     private ContentComponent contentComponent;
     private Anket anket;
     private Soru soru;
+    private Kisi kisi;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -68,4 +70,13 @@ public class SyUI extends UI {
     public Soru getSoru(){return soru;}
 
     public void setSoru(Soru soru){this.soru = soru;}
+
+    public Kisi getKisi() {
+        return kisi;
+    }
+
+    public void setKisi(Kisi kisi) {
+        this.kisi = kisi;
+    }
+
 }

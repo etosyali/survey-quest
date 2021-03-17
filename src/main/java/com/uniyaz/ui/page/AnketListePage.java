@@ -10,6 +10,7 @@ import com.vaadin.data.Container;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;
 import com.vaadin.server.FontAwesome;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.window.WindowMode;
 import com.vaadin.ui.*;
 
@@ -102,8 +103,12 @@ public class AnketListePage extends VerticalLayout {
                 window.center();
                 window.setContent(soruPage);
 
+
+
                 SyUI syUI = (SyUI) SyUI.getCurrent();
                 syUI.addWindow(window);
+
+
 
             }
         });

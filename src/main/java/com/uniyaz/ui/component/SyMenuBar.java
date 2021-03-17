@@ -60,13 +60,13 @@ public class SyMenuBar extends MenuBar {
                 contentComponent.addComponent(anketListePage);
             }
         });
-      //  AnketIslemleriMenuItem.addItem("SORULAR", FontAwesome.LIST, new Command() {
-        //    @Override
-          //  public void menuSelected(MenuItem menuItem) {
-            //    SoruPage soruPage = new SoruPage();
-              //  contentComponent.addComponent(soruPage);
-            //}
-       // });
+        AnketIslemleriMenuItem.addItem("KISI", FontAwesome.LIST, new Command() {
+           @Override
+            public void menuSelected(MenuItem menuItem) {
+                TabPage tabPage = new TabPage();
+               contentComponent.addComponent(tabPage);
+            }
+        });
     }
 
     private void buildAnketCozMenuItem() {

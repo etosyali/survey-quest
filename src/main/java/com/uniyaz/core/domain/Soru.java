@@ -1,6 +1,8 @@
 package com.uniyaz.core.domain;
 
 
+import com.vaadin.ui.ComboBox;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -17,8 +19,9 @@ public class Soru extends BaseEntity {
     @NotNull
     private String soruyaz;
 
-    @Column(name = "SECENEK",length = 100)
-    private String secenek;
+
+    @Column(name = "SORUTIPI")
+    private String sorutipi;
 
     @Column(name ="CEVAP", length = 100)
     private String cevap;
@@ -35,13 +38,14 @@ public class Soru extends BaseEntity {
 
     public void setId(Long id) { this.id = id; }
 
-    public String getSecenek() { return secenek; }
-
-    public void setAdi(String secenek) { this.secenek = secenek; }
 
     public String getCevap() { return cevap; }
 
     public void setCevap(String cevap) { this.cevap = cevap; }
+
+    public String getSorutipi() { return sorutipi; }
+
+    public void setSorutipi(String sorutipi) { this.sorutipi = sorutipi; }
 
     public String getSoruyaz() { return soruyaz; }
 

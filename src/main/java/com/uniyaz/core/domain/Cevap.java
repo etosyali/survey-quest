@@ -3,26 +3,22 @@ package com.uniyaz.core.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
-@Table(name = "ANKET")
-public class Anket extends BaseEntity {
-
+@Table(name = "CEVAP")
+public class Cevap extends BaseEntity
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "ADI", nullable = false, length = 100)
+    @Column(name = "CEVAP", nullable = false, length = 100)
     @NotNull
-    private String adi;
+    private String cevap;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_KISI", foreignKey = @ForeignKey(name = "FK_ANKET_KISI_ANKET"))
-    private Kisi kisi;
-
-
-
+    @JoinColumn(name = "ID_SORU", foreignKey = @ForeignKey(name = "FK_SORU_CEVAP"))
+    private Soru soru;
 
     @Override
     public Long getId() {
@@ -33,12 +29,11 @@ public class Anket extends BaseEntity {
         this.id = id;
     }
 
-    public String getAdi() {
-        return adi;
+    public String getCevap() {
+        return cevap;
     }
 
-    public void setAdi(String adi) {
-        this.adi = adi;
+    public void setCevap(String cevap) {
+        this.cevap = cevap;
     }
-
 }

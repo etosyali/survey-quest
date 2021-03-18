@@ -18,5 +18,6 @@
         <mapping class="com.uniyaz.core.domain.AnketSoru"></mapping>
         <mapping class="com.uniyaz.core.domain.Soru"></mapping>
         <mapping class="com.uniyaz.core.domain.Kisi"></mapping>
+        <mapping class="com.uniyaz.core.domain.Secenek"></mapping>
     </session-factory>
 </hibernate-configuration>

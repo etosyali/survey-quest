@@ -29,14 +29,14 @@ public class AnketSoru extends BaseEntity {
         this.id = id;
     }
 
-    public Anket getAnket() {
+ /*   public Anket getAnket() {
         return anket;
     }
 
     public void setAnket(Anket anket) {
         this.anket = anket;
     }
-
+*/
     public Soru getSoru() {
         return soru;
     }

@@ -13,9 +13,9 @@ import com.vaadin.ui.themes.ValoTheme;
 
 public class TabPage extends TabSheet {
     private VerticalLayout kisiLayout;
-    private VerticalLayout secenekEkleLayout;
+ //   private VerticalLayout secenekEkleLayout;
     private VerticalLayout anketListeLayout;
-    private VerticalLayout soruEkleLayout;
+    private VerticalLayout kisiAnketSonucLayout;
 
 
 
@@ -31,24 +31,24 @@ public class TabPage extends TabSheet {
 
         buidEkle();
         buildListele();
-        buildSoruEkle();
-        buildSecenekEkle();
+        buildkisiAnketSonuc();
+       // buildSecenekEkle();
 
 
     }
 
-    private void buildSecenekEkle() {
+  /*  private void buildSecenekEkle() {
         secenekEkleLayout=new VerticalLayout();
         secenekEkleLayout.setMargin(true);
         addTab(secenekEkleLayout, "SeçenekEkle " );
 
 
-    }
+    }*/
 
-    private void buildSoruEkle() {
-        soruEkleLayout=new VerticalLayout();
-        soruEkleLayout.setMargin(true);
-        addTab(soruEkleLayout, "SoruEkle " );
+    private void buildkisiAnketSonuc() {
+        kisiAnketSonucLayout=new VerticalLayout();
+        kisiAnketSonucLayout.setMargin(true);
+        addTab(kisiAnketSonucLayout, "Kişi Anket Sonucu " );
 
 
 

@@ -24,5 +24,6 @@ public class ContentComponent extends VerticalLayout {
 
     public void addComponent(SoruPage soruPage) {
 
+
     }
 }

@@ -60,22 +60,22 @@ public class SyMenuBar extends MenuBar {
                 contentComponent.addComponent(anketListePage);
             }
         });
-        AnketIslemleriMenuItem.addItem("KISI", FontAwesome.LIST, new Command() {
-           @Override
+   /*     AnketIslemleriMenuItem.addItem("KISI", FontAwesome.LIST, new Command() {
+          @Override
             public void menuSelected(MenuItem menuItem) {
                 TabPage tabPage = new TabPage();
                contentComponent.addComponent(tabPage);
             }
-        });
+        });*/
     }
 
     private void buildAnketCozMenuItem() {
         MenuItem AnketCozMenuItem = addItem("Anket Çöz", null);
-        AnketCozMenuItem.addItem("Anket Listele", FontAwesome.PLUS, new Command() {
+        AnketCozMenuItem.addItem("KISI", FontAwesome.LIST, new Command() {
             @Override
             public void menuSelected(MenuItem menuItem) {
-                AnketCozListePage anketCozListePage = new AnketCozListePage();
-                contentComponent.addComponent(anketCozListePage);
+                TabPage tabPage = new TabPage();
+                contentComponent.addComponent(tabPage);
             }
         });
     }

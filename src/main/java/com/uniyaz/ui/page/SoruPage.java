@@ -4,13 +4,15 @@ package com.uniyaz.ui.page;
 import com.uniyaz.core.domain.Anket;
 import com.uniyaz.core.domain.Soru;
 import com.uniyaz.core.service.SoruService;
+import com.uniyaz.ui.component.SecenekComboBox;
 import com.uniyaz.ui.component.SySaveButton;
 import com.vaadin.data.fieldgroup.FieldGroup;
 import com.vaadin.data.fieldgroup.PropertyId;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 
-public class SoruPage extends VerticalLayout {
+public class SoruPage extends TabSheet  {
 
     @PropertyId("id")
     private TextField id;
@@ -18,8 +20,13 @@ public class SoruPage extends VerticalLayout {
     @PropertyId("soruyaz")
     private TextField soruyaz;
 
+
+    @PropertyId("sorutipi")
+    private ComboBox sorutipi;
+
     @PropertyId("secenek")
-    private ComboBox secenek;
+    private TextField secenek;
+
 
     @PropertyId("cevap")
     private TextField cevap;
@@ -29,6 +36,8 @@ public class SoruPage extends VerticalLayout {
     private BeanItem<Soru> soruBeanItem;
     private FieldGroup binder;
     private SySaveButton sySaveButton;
+    private VerticalLayout secenekEkleLayout;
+    private VerticalLayout soruEkleLayout;
     private Anket anket;
 
 
@@ -41,13 +50,20 @@ public class SoruPage extends VerticalLayout {
         binder = new FieldGroup(soruBeanItem);
 
         setSizeFull();
-        buildMainLayout();
-        addComponent(mainLayout);
-        setComponentAlignment(mainLayout, Alignment.MIDDLE_CENTER);
+
+        addStyleName(ValoTheme.TABSHEET_FRAMED);
+        addStyleName(ValoTheme.TABSHEET_PADDED_TABBAR);
+
+        final FormLayout formLayout = new FormLayout();
+        formLayout.setWidth(100.0f, Unit.PERCENTAGE);
+
+
+        soruEkleLayout();
+        secenekEkleLayout();
+
 
         binder.bindMemberFields(this);
         id.setEnabled(false);
-
     }
 
     public SoruPage(Soru soru){
@@ -55,37 +71,74 @@ public class SoruPage extends VerticalLayout {
         binder = new FieldGroup(soruBeanItem);
 
         setSizeFull();
-        buildMainLayout();
-        addComponent(mainLayout);
-        setComponentAlignment(mainLayout, Alignment.MIDDLE_CENTER);
+
+        addStyleName(ValoTheme.TABSHEET_FRAMED);
+        addStyleName(ValoTheme.TABSHEET_PADDED_TABBAR);
+
+        final FormLayout formLayout = new FormLayout();
+        formLayout.setWidth(100.0f, Unit.PERCENTAGE);
+
+
+
+        soruEkleLayout();
+        secenekEkleLayout();
 
         binder.bindMemberFields(this);
         id.setEnabled(false);
     }
 
-    private void buildMainLayout() {
-
-        mainLayout = new FormLayout();
-        mainLayout.setSizeUndefined();
+    private void secenekEkleLayout() {
+        secenekEkleLayout = new VerticalLayout();
+        secenekEkleLayout.setMargin(true);
+        addTab(secenekEkleLayout,"Seçenek Ekle");
 
         id = new TextField();
         id.setCaption("ID");
         id.setNullRepresentation("");
-        mainLayout.addComponent(id);
+        secenekEkleLayout.addComponent(id);
+
+        secenek = new TextField();
+        secenek.setCaption("Seçenekler");
+        secenek.setNullRepresentation("");
+        secenekEkleLayout.addComponent(secenek);
+    }
+
+    private void soruEkleLayout() {
+        soruEkleLayout=new VerticalLayout();
+        soruEkleLayout.setMargin(true);
+        addTab(soruEkleLayout, "Soru Ekle " );
+
+
+        id = new TextField();
+        id.setCaption("ID");
+        id.setNullRepresentation("");
+        soruEkleLayout.addComponent(id);
 
         soruyaz = new TextField();
         soruyaz.setCaption("Soruyaz");
         soruyaz.setNullRepresentation("");
-        mainLayout.addComponent(soruyaz);
+        soruEkleLayout.addComponent(soruyaz);
 
-        secenek = new ComboBox();
-        secenek.setCaption("Secenek");
-        mainLayout.addComponent(secenek);
 
-        cevap = new TextField();
+
+        sorutipi = new ComboBox();
+        sorutipi.setCaption("Soru Tipi");
+        sorutipi.addItem("Coktan Seçmeli");
+        sorutipi.addItem("TextField");
+        sorutipi.addItem("Seçmeli");
+        soruEkleLayout.addComponent(sorutipi);
+
+
+
+
+     /*   cevap = new TextField();
         cevap.setCaption("Cevap");
         cevap.setNullRepresentation("");
-        mainLayout.addComponent(cevap);
+        soruEkleLayout.addComponent(cevap);
+*/
+         /*   secenek = new SecenekComboBox();
+        secenek.setCaption("Soru Biçimi");
+        soruEkleLayout.addComponent(secenek);*/
 
         sySaveButton = new SySaveButton();
         sySaveButton.addClickListener(new Button.ClickListener() {
@@ -104,7 +157,12 @@ public class SoruPage extends VerticalLayout {
                 }
             }
         });
-        mainLayout.addComponent(sySaveButton);
+        soruEkleLayout.addComponent(sySaveButton);
+    }
+
+    private void buildMainLayout() {
+
+
 
     }
 }

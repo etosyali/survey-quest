@@ -24,6 +24,8 @@ public class Kisi extends BaseEntity {
     @NotNull
     private String email;
 
+
+
     @Override
     public Long getId() { return id; }
 

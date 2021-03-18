@@ -10,7 +10,6 @@ import com.vaadin.data.Container;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.window.WindowMode;
 import com.vaadin.ui.*;
 
@@ -129,29 +128,5 @@ public class AnketListePage extends VerticalLayout {
             }
         });
         return guncelle;
-    }
-
-     private Button buildSiparisButton(Anket anket) {
-      Button siparisButton = new Button();
-    siparisButton.setIcon(FontAwesome.SHOPPING_BASKET);
-        siparisButton.addClickListener(new Button.ClickListener() {
-           @Override
-           public void buttonClick(Button.ClickEvent clickEvent) {
-              // SiparisListePage siparisListePage = new SiparisListePage(anket);
-               Window window = new Window();
-               window.setCaption("Siparişler");
-               window.setClosable(true);
-               window.setWindowMode(WindowMode.NORMAL);
-                window.setWidth(30, Unit.PERCENTAGE);
-               window.setHeight(30, Unit.PERCENTAGE);
-               window.setResizable(true);
-                window.center();
-                //window.setContent(siparisListePage);
-
-                SyUI syUI = (SyUI) SyUI.getCurrent();
-                syUI.addWindow(window);
-            }
-        });
-        return siparisButton;
     }
 }

@@ -3,7 +3,6 @@ package com.uniyaz.ui.page;
 import com.uniyaz.core.domain.Anket;
 import com.uniyaz.core.domain.Soru;
 import com.uniyaz.core.service.AnketService;
-import com.uniyaz.core.service.SoruService;
 import com.uniyaz.ui.SyUI;
 import com.uniyaz.ui.component.ContentComponent;
 import com.uniyaz.ui.component.SyEditButton;
@@ -13,8 +12,6 @@ import com.vaadin.data.util.IndexedContainer;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.shared.ui.window.WindowMode;
 import com.vaadin.ui.*;
-
-import java.math.BigDecimal;
 import java.util.List;
 
 public class AnketCozListePage extends VerticalLayout {
@@ -23,6 +20,8 @@ public class AnketCozListePage extends VerticalLayout {
     private Table table;
     private Container container;
     private Soru soru;
+    private Anket anket;
+    private SoruListelePage soruListelePage;
 
     public AnketCozListePage() {
 
@@ -79,7 +78,7 @@ public class AnketCozListePage extends VerticalLayout {
 
 
 
-            Button secim = buildSecimButton(new Soru());
+            Button secim = buildSecimButton(new SoruListelePage());
             item.getItemProperty("kaydet").setValue(secim);
 
             //  Button siparisButton = buildSiparisButton(anket);
@@ -87,14 +86,14 @@ public class AnketCozListePage extends VerticalLayout {
         }
     }
 
-    private Button buildSecimButton(final Soru soru) {
+    private Button buildSecimButton(SoruListelePage soruListelePage) {
 
         Button secim = new Button("ANKETİ ÇÖZ");
         secim.setIcon(FontAwesome.CHECK);
         secim.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                SoruPage soruPage = new SoruPage(soru);
+                SoruListelePage SoruListelePage = new SoruListelePage(soruListelePage);
                 Window window = new Window();
                 window.setCaption("ANKET");
                 window.setClosable(true);
@@ -103,7 +102,7 @@ public class AnketCozListePage extends VerticalLayout {
                 window.setHeight(50, Unit.PERCENTAGE);
                 window.setResizable(true);
                 window.center();
-                window.setContent(soruPage);
+                window.setContent(soruListelePage);
 
                 SyUI syUI = (SyUI) SyUI.getCurrent();
                 syUI.addWindow(window);

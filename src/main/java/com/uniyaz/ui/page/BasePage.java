@@ -7,7 +7,6 @@ public abstract class BasePage extends VerticalLayout {
 
     public BasePage() {
         setSizeFull();
-        buildMainLayout();
     }
 
     public abstract void buildMainLayout();

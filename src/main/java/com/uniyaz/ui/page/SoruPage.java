@@ -2,6 +2,7 @@ package com.uniyaz.ui.page;
 
 
 import com.uniyaz.core.domain.Anket;
+import com.uniyaz.core.domain.EnumSoruTipi;
 import com.uniyaz.core.domain.Soru;
 import com.uniyaz.core.service.SoruService;
 import com.uniyaz.ui.component.SecenekComboBox;
@@ -11,6 +12,7 @@ import com.vaadin.data.fieldgroup.PropertyId;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+
 
 public class SoruPage extends TabSheet  {
 
@@ -31,14 +33,18 @@ public class SoruPage extends TabSheet  {
     @PropertyId("cevap")
     private TextField cevap;
 
-    private FormLayout mainLayout;
+    @PropertyId("enumSoruTipi")
+    private SecenekComboBox secenekComboBox;
 
+
+    private FormLayout mainLayout;
     private BeanItem<Soru> soruBeanItem;
     private FieldGroup binder;
     private SySaveButton sySaveButton;
     private VerticalLayout secenekEkleLayout;
     private VerticalLayout soruEkleLayout;
     private Anket anket;
+    private EnumSoruTipi enumSoruTipi;
 
 
     public SoruPage(Anket anket) {
@@ -120,25 +126,10 @@ public class SoruPage extends TabSheet  {
         soruEkleLayout.addComponent(soruyaz);
 
 
+        secenekComboBox = new SecenekComboBox();
+        secenekComboBox.setCaption("Soru Tipi");
+        soruEkleLayout.addComponent(secenekComboBox);
 
-        sorutipi = new ComboBox();
-        sorutipi.setCaption("Soru Tipi");
-        sorutipi.addItem("Coktan Seçmeli");
-        sorutipi.addItem("TextField");
-        sorutipi.addItem("Seçmeli");
-        soruEkleLayout.addComponent(sorutipi);
-
-
-
-
-     /*   cevap = new TextField();
-        cevap.setCaption("Cevap");
-        cevap.setNullRepresentation("");
-        soruEkleLayout.addComponent(cevap);
-*/
-         /*   secenek = new SecenekComboBox();
-        secenek.setCaption("Soru Biçimi");
-        soruEkleLayout.addComponent(secenek);*/
 
         sySaveButton = new SySaveButton();
         sySaveButton.addClickListener(new Button.ClickListener() {
@@ -161,8 +152,6 @@ public class SoruPage extends TabSheet  {
     }
 
     private void buildMainLayout() {
-
-
 
     }
 }

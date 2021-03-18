@@ -1,6 +1,6 @@
 package com.uniyaz.core.domain;
 
-import org.jsoup.Connection;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

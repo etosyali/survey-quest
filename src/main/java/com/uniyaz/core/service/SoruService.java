@@ -9,7 +9,8 @@ public class SoruService {
     SoruDao soruDao = new SoruDao();
 
     public void saveSoru(Soru soru){soruDao.saveSoru(soru);}
-    public List<Soru> findAllHql() {
-        return soruDao.findAllHql();
-    }
+    public List<Soru> findAllHql() {return soruDao.findAllHql(); }
+    public List<Soru> findByAnketId(long anketId) {return soruDao.findByAnketId(anketId); }
+
+
 }

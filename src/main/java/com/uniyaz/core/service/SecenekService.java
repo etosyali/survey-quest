@@ -1,10 +1,8 @@
 package com.uniyaz.core.service;
 
-import com.uniyaz.core.dao.AnketDao;
-import com.uniyaz.core.dao.SecenekDao;
-import com.uniyaz.core.domain.Anket;
-import com.uniyaz.core.domain.Secenek;
 
+import com.uniyaz.core.dao.SecenekDao;
+import com.uniyaz.core.domain.Secenek;
 import java.util.List;
 
 public class SecenekService

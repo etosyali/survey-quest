@@ -1,12 +1,9 @@
 package com.uniyaz.ui.page;
 
-import com.uniyaz.core.domain.Anket;
 import com.uniyaz.core.domain.Cevap;
 import com.uniyaz.core.domain.Soru;
-import com.uniyaz.core.service.AnketService;
 import com.uniyaz.core.service.SoruService;
 import com.uniyaz.ui.SyUI;
-import com.uniyaz.ui.component.ContentComponent;
 import com.uniyaz.ui.component.SyEditButton;
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
@@ -23,7 +20,11 @@ public class SoruListelePage extends VerticalLayout {
     public Soru soru;
     public Cevap cevap;
 
-    SoruListelePage(){
+    private long _anketId;
+
+    SoruListelePage(long anketId){
+        this._anketId = anketId;
+
         setSizeFull();
         buildMainLayout();
         addComponent(mainLayout);
@@ -33,8 +34,8 @@ public class SoruListelePage extends VerticalLayout {
         fillTable();
     }
 
-    public SoruListelePage(SoruListelePage soruListelePage) {
-
+    public SoruListelePage(SoruListelePage soruListelePage,long anketId) {
+        this._anketId = anketId;
     }
 
 
@@ -60,7 +61,7 @@ public class SoruListelePage extends VerticalLayout {
 
     private void fillTable() {
         SoruService soruService = new SoruService();
-        List<Soru> soruList = soruService.findAllHql();
+        List<Soru> soruList = soruService.findByAnketId(_anketId);
         for (Soru soru : soruList) {
             Item item = container.addItem(soru);
             item.getItemProperty("id").setValue(soru.getId());

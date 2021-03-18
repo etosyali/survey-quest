@@ -1,9 +1,6 @@
 package com.uniyaz.ui.page;
 
 
-
-
-import com.uniyaz.core.domain.Kisi;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
@@ -13,7 +10,6 @@ import com.vaadin.ui.themes.ValoTheme;
 
 public class TabPage extends TabSheet {
     private VerticalLayout kisiLayout;
- //   private VerticalLayout secenekEkleLayout;
     private VerticalLayout anketListeLayout;
     private VerticalLayout kisiAnketSonucLayout;
 
@@ -32,24 +28,14 @@ public class TabPage extends TabSheet {
         buidEkle();
         buildListele();
         buildkisiAnketSonuc();
-       // buildSecenekEkle();
 
 
     }
-
-  /*  private void buildSecenekEkle() {
-        secenekEkleLayout=new VerticalLayout();
-        secenekEkleLayout.setMargin(true);
-        addTab(secenekEkleLayout, "SeçenekEkle " );
-
-
-    }*/
 
     private void buildkisiAnketSonuc() {
         kisiAnketSonucLayout=new VerticalLayout();
         kisiAnketSonucLayout.setMargin(true);
         addTab(kisiAnketSonucLayout, "Kişi Anket Sonucu " );
-
 
 
     }

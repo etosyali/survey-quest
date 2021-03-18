@@ -1,9 +1,8 @@
 package com.uniyaz.ui.page;
 
 
-import com.uniyaz.core.domain.Anket;
+
 import com.uniyaz.core.domain.Kisi;
-import com.uniyaz.core.service.AnketService;
 import com.uniyaz.core.service.KisiService;
 import com.uniyaz.ui.component.SySaveButton;
 import com.vaadin.data.fieldgroup.FieldGroup;

@@ -1,6 +1,5 @@
 package com.uniyaz.core.dao;
 
-import com.uniyaz.core.domain.Anket;
 import com.uniyaz.core.domain.Kisi;
 import com.uniyaz.core.utils.HibernateUtil;
 import org.hibernate.Criteria;

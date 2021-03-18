@@ -57,8 +57,6 @@ public class AnketCozListePage extends VerticalLayout {
         container = new IndexedContainer();
         container.addContainerProperty("id", Long.class, null);
         container.addContainerProperty("adi", String.class, null);
-      //  container.addContainerProperty("secenek",String.class,null);
-      //  container.addContainerProperty("cevap",String.class,null);
         container.addContainerProperty("kaydet", Button.class, null);
 
     }
@@ -72,17 +70,12 @@ public class AnketCozListePage extends VerticalLayout {
             item.getItemProperty("id").setValue(anket.getId());
             item.getItemProperty("adi").setValue(anket.getAdi());
 
-           // item.getItemProperty("soruyaz").setValue(soru.getSoruyaz());
-           // item.getItemProperty("cevap").setValue(soru.getCevap());
-           // item.getItemProperty("secenek").setValue(soru.getSecenek());
 
 
-
-            Button secim = buildSecimButton(new SoruListelePage());
+            Button secim = buildSecimButton(new SoruListelePage(anket.getId()));
+            secim.setId(anket.getId().toString());
             item.getItemProperty("kaydet").setValue(secim);
 
-            //  Button siparisButton = buildSiparisButton(anket);
-            //  item.getItemProperty("siparis").setValue(siparisButton);
         }
     }
 
@@ -93,7 +86,7 @@ public class AnketCozListePage extends VerticalLayout {
         secim.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                SoruListelePage SoruListelePage = new SoruListelePage(soruListelePage);
+                SoruListelePage SoruListelePage = new SoruListelePage(soruListelePage,Long.parseLong(secim.getId()));
                 Window window = new Window();
                 window.setCaption("ANKET");
                 window.setClosable(true);

@@ -1,31 +1,28 @@
 package com.uniyaz.ui.component;
 
-
-import com.uniyaz.core.dao.SecenekDao;
-import com.uniyaz.core.domain.Secenek;
+import com.uniyaz.core.domain.EnumSoruTipi;
+import com.vaadin.data.Item;
 import com.vaadin.ui.ComboBox;
-
-import java.util.List;
+import com.vaadin.ui.FormLayout;
 
 public class SecenekComboBox extends ComboBox
 {
-    private SecenekDao secenekDao;
+    private EnumSoruTipi enumSoruTipi;
+    private FormLayout mainLayout;
 
     public SecenekComboBox()
     {
-        this.secenekDao = new SecenekDao();
-        this.setDescription("Kategori Seçiniz");
-        fillComboBox();
+        mainLayout = new FormLayout();
+
+        fillCombobox();
     }
 
-    private void fillComboBox()
+    private void fillCombobox()
     {
-        this.removeAllItems();
-        List<Secenek> secenekList = secenekDao.findAllHql();
-        for (Secenek secenek : secenekList)
+        for (EnumSoruTipi soruTuru : EnumSoruTipi.values())
         {
-            this.addItem(secenek);
-            setItemCaption(secenek,secenek.getSecenek());
-        }
+            Item item = addItem(soruTuru);
+
     }
+}
 }
